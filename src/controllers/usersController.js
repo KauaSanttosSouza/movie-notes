@@ -29,6 +29,7 @@ class usersController {
 
       const userWithUpdateEmail = await database.get('SELECT * FROM users WHERE email = (?)', [email])
 
+
       if( userWithUpdateEmail && userWithUpdateEmail.id !== user.id ) {
          throw new AppError("E-mail in use")
       }
@@ -42,7 +43,7 @@ class usersController {
       if( password && old_password ) {
          const checkOldPassword = await compare( old_password, user.password )
 
-         if( checkOldPassword ) { 
+         if( !checkOldPassword ) { 
             throw new AppError("Please, check the passwords")
          }
 
