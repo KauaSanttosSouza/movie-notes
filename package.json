@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/server.js",
-    "migrate": "npm migrate:latest"
+    "migrate": "knex migrate:latest"
   },
   "keywords": [],
   "author": "",
